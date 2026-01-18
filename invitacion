@@ -6,130 +6,86 @@
     <title>Convivencia con Geo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #e67e22;
-            --bg: #f4f7f6;
-        }
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0; padding: 0; background: var(--bg); color: #333; text-align: center;
-        }
-        .container { max-width: 500px; margin: auto; background: white; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .hero-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); margin-top: 20px; }
-        h1 { color: var(--primary); margin-bottom: 5px; }
-        .info-box { background: #f9f9f9; padding: 15px; border-radius: 10px; margin: 20px 0; border-left: 5px solid var(--primary); text-align: left; }
-        .menu-img { width: 100%; border-radius: 10px; margin: 15px 0; }
-        .btn {
-            display: inline-block; background: #25d366; color: white; padding: 15px 25px;
-            text-decoration: none; border-radius: 30px; font-weight: bold; margin: 10px 5px; cursor: pointer; border: none; font-size: 16px;
-        }
+        :root { --primary: #2c3e50; --accent: #d35400; --bg: #fdfaf6; }
+        body { font-family: sans-serif; margin: 0; background: var(--bg); text-align: center; color: #333; }
+        .container { max-width: 450px; margin: auto; background: white; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .hero-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); margin-top: 10px; }
+        .info-box { background: #f8f9fa; padding: 15px; border-radius: 10px; text-align: left; margin: 20px 0; border-left: 5px solid var(--primary); }
+        .menu-img { width: 100%; border-radius: 12px; margin: 15px 0; }
+        .btn { display: block; background: #25d366; color: white; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 10px 0; border: none; width: 100%; font-size: 16px; }
         .btn-waze { background: #33ccff; }
-        .form-group { margin: 20px 0; text-align: left; }
-        input { width: 100%; padding: 12px; margin-top: 8px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        #ticket { display: none; border: 2px dashed #999; padding: 20px; margin-top: 20px; background: #fff; }
-        .price-notice { font-size: 1.2em; font-weight: bold; color: #c0392b; margin: 15px 0; }
+        #ticket { display: none; border: 3px dashed #333; padding: 20px; margin-top: 20px; background: #fff; }
+        .price-notice { font-size: 1.1em; font-weight: bold; color: #c0392b; margin: 15px 0; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
         #qrcode { display: flex; justify-content: center; margin: 20px 0; }
-        .counter { font-weight: bold; color: var(--accent); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <img src="https://i.ibb.co/pPz8qL9/geo-photo.jpg" alt="Geo" class="hero-img">
-    
+    <img src="https://i.ibb.co/pPz8qL9/geo-photo.jpg" class="hero-img">
     <h1>Convivencia con Geo</h1>
-    <p>¡Estás cordialmente invitado!</p>
-
+    
     <div class="info-box">
         <strong>📅 Fecha:</strong> Lunes 19 de enero, 2026<br>
         <strong>⏰ Hora:</strong> 7:00 p.m.<br>
-        <strong>📍 Dirección:</strong> Lote 4-5, Residenciales Maya, Zona 18<br>
-        <strong>👥 Cupo Restante:</strong> <span class="counter" id="cupo">40</span> / 40
+        <strong>📍 Dirección:</strong> Lote 4-5, Residenciales Maya, Zona 18
     </div>
 
-    <a href="https://www.google.com/maps/search/?api=1&query=14.673417,-90.458558" target="_blank" class="btn">Abrir Google Maps</a>
-    <a href="https://waze.com/ul?ll=14.673417,-90.458558&navigate=yes" target="_blank" class="btn btn-waze">Abrir en Waze</a>
+    <a href="https://www.google.com/maps?q=14.673417,-90.458558" class="btn">📍 Abrir en Google Maps</a>
+    <a href="https://waze.com/ul?ll=14.673417,-90.458558&navigate=yes" class="btn btn-waze">🚗 Abrir en Waze</a>
 
     <hr>
-
-    <h3>Menú de la Noche</h3>
-    <img src="https://images.unsplash.com/photo-image-placeholder-steak-veggies" alt="Plato Fuerte" class="menu-img">
-    <p><em>Carne de res asada con salsa cremosa de champiñones (Strogonoff), acompañada de arroz con maíz dulce y vegetales salteados a la vinagreta.</em></p>
+    <h3>Menú del Evento</h3>
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947" class="menu-img">
+    <p>Arroz con maíz dulce, vegetales salteados a la vinagreta y carne de res asada en salsa de champiñones strogonoff.</p>
 
     <div class="price-notice">
         [1 cena gratis por invitado, si desea repetir el plato tendrá un costo de Q75.00]
     </div>
 
-    <div id="registration-form">
-        <h3>Regístrate para obtener tu Ticket</h3>
-        <div class="form-group">
-            <label>Nombre Completo:</label>
-            <input type="text" id="guest-name" placeholder="Ej. Juan Pérez">
-        </div>
-        <div class="form-group">
-            <label>Primeros 4 dígitos de tu WhatsApp:</label>
-            <input type="number" id="guest-wa" placeholder="Ej. 5501">
-        </div>
-        <button class="btn" style="background: var(--primary);" onclick="generateTicket()">Generar mi Ticket</button>
+    <div id="form-area">
+        <h3>Regístrate (Cupo: 40 personas)</h3>
+        <input type="text" id="nombre" placeholder="Nombre completo">
+        <input type="number" id="wa" placeholder="Primeros 4 dígitos de WhatsApp">
+        <button class="btn" style="background:var(--primary)" onclick="crearTicket()">Generar mi Ticket</button>
     </div>
 
     <div id="ticket">
-        <h2 style="color:var(--accent)">🎟️ TICKET DE COMIDA</h2>
-        <p><strong>Invitado:</strong> <span id="display-name"></span></p>
+        <h2 style="color:var(--accent)">🎟️ MI TICKET</h2>
+        <p><strong>Invitado:</strong> <span id="guest-name"></span></p>
         <div id="qrcode"></div>
-        <p style="font-size: 0.8em;">Este código es de un solo uso para control de merienda.</p>
-        <p><strong>El Total será enviado al organizador: +502 36574097</strong></p>
-        <button class="btn" onclick="sendToOrganizer()">Confirmar Asistencia vía WhatsApp</button>
+        <p>El Total será enviado al organizador: +502 36574097</p>
+        <button class="btn" onclick="enviarWA()">✅ Confirmar por WhatsApp</button>
     </div>
 </div>
 
 <script>
-    // Simulación de cupo (En un sitio real se usaría una base de datos)
-    let count = localStorage.getItem('attendees') || 0;
-    document.getElementById('cupo').innerText = 40 - count;
+    function crearTicket() {
+        const nom = document.getElementById('nombre').value;
+        const tel = document.getElementById('wa').value;
 
-    function generateTicket() {
-        const name = document.getElementById('guest-name').value;
-        const wa = document.getElementById('guest-wa').value;
+        if(!nom || tel.length < 4) return alert("Completa tus datos");
 
-        if (!name || wa.length < 4) {
-            alert("Por favor ingresa tu nombre y los primeros 4 dígitos de tu WhatsApp.");
-            return;
-        }
-
-        if (count >= 40) {
-            alert("Lo sentimos, el cupo de 40 personas está lleno.");
-            return;
-        }
-
-        // Mostrar Ticket
-        document.getElementById('registration-form').style.display = 'none';
+        document.getElementById('form-area').style.display = 'none';
         document.getElementById('ticket').style.display = 'block';
-        document.getElementById('display-name').innerText = name;
+        document.getElementById('guest-name').innerText = nom;
 
-        // Generar QR Único (Nombre + WA + Timestamp)
-        const qrContent = `INVITADO: ${name} | ID: ${wa}-${Date.now()}`;
+        // Generar QR de un solo uso
+        const uniqueID = nom.substring(0,3).toUpperCase() + tel + Math.floor(Math.random()*1000);
         new QRCode(document.getElementById("qrcode"), {
-            text: qrContent,
-            width: 180,
-            height: 180
+            text: "VALIDO-EVENTO-GEO-" + uniqueID,
+            width: 160, height: 160
         });
-
-        // Actualizar contador local
-        count++;
-        localStorage.setItem('attendees', count);
     }
 
-    function sendToOrganizer() {
-        const name = document.getElementById('guest-name').value;
-        const wa = document.getElementById('guest-wa').value;
-        const message = `¡Hola Geo! Confirmo mi asistencia. Mi nombre es ${name} (WA: ${wa}...). Total de asistentes registrados: ${count}. [1 cena gratis por invitado, si desea repetir el plato tendrá un costo de Q75.00]`;
-        
-        const url = `https://wa.me/50236574097?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
+    function enviarWA() {
+        const nom = document.getElementById('guest-name').innerText;
+        const msg = `¡Hola Geo! Confirmo mi asistencia para el 19 de enero. Mi nombre es ${nom}. [1 cena gratis por invitado, si desea repetir el plato tendrá un costo de Q75.00]`;
+        window.open(`https://wa.me/50236574097?text=${encodeURIComponent(msg)}`, '_blank');
     }
 </script>
 
 </body>
 </html>
+
